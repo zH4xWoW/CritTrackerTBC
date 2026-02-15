@@ -1,6 +1,6 @@
 # CritTracker
 
-***Updated for TBC CLassic Anniversary!***
+***Updated for TBC Classic Anniversary!***
 
 A World of Warcraft Classic addon for tracking critical hits on spells, abilities, melee attacks, and wand shots. Updated for TBC Classic Anniversary by Zanzo (aka Ronowar-Dreamscythe).
 
