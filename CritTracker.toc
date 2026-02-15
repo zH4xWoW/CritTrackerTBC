@@ -1,0 +1,9 @@
+## Interface: 20505
+## Title: |cff00aeffCrit|r|cFFDDDDDDTracker|r |cff20a30fTBC Classic Anniversary|r
+## Notes: Tracks critical hits for each specific spell, ability, melee, and wand attacks. Updated for TBC Classic Anniversary.
+## Author: Zanzo (Ronowar-Dreamscythe)
+## Version: 1.12
+## SavedVariables: CritTrackerDB
+
+# Main addon file
+CritTracker.lua
