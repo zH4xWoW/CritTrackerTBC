@@ -172,7 +172,7 @@ end
 
 -- Update the player login message
 function CT:ShowWelcomeMessage()
-    self:Print("|cffc74816[CritTrackerTBC]|r Loaded. Type /ct to open settings or /ct help for commands.")
+    self:Print("|cffc74816[|r|cff00aeffCrit|r|cFFDDDDDDTracker|r|cff20a30fTBC|r|cffc74816]|r Loaded. Type /ct to open settings or /ct help for commands.")
 end
 
 -- Helper to create UI elements - consolidated function
@@ -342,7 +342,7 @@ function CT:SetupTooltips()
         
         if recordInfo then
             tooltip:AddLine(" ")
-            tooltip:AddLine("|cffff8800[CritTrackerTBC]|r ")
+            tooltip:AddLine("|cffff8800[|cff00aeffCrit|r|cFFDDDDDDTracker|r|cff20a30fTBC|r|cffff8800]|r ")
             
             local timeAgo = CT:FormatTimeAgo(recordInfo.data.timestamp)
             tooltip:AddLine("Highest crit: |cffff0000" .. recordInfo.data.value .. "|r " .. timeAgo)
@@ -389,6 +389,7 @@ function CT:ToggleSetting(settingName, displayName, value)
     end
 end
 
+--
 -- Handle slash commands - update for report panel
 function CT:HandleCommand(msg)
     local args = {}
@@ -400,7 +401,7 @@ function CT:HandleCommand(msg)
     
     -- Command dispatch table for cleaner code
     local commandHandlers = {
-        help = function()
+        help = function()   -- Help command to list available commands
             self:Print("|cffff8800[CritTrackerTBC]|r Commands:")
             self:Print("/ct - Open configuration panel")
             self:Print("/ct help - Show this help")
@@ -409,12 +410,12 @@ function CT:HandleCommand(msg)
             self:Print("/ct reset - Reset all records (with confirmation)")
         end,
         
-        toggle = function()
+        toggle = function() -- Toggle command to quickly enable/disable tracking
             self.settings.enabled = not self.settings.enabled
             self:Print("Tracking " .. (self.settings.enabled and "enabled" or "disabled") .. ".")
         end,
         
-        report = function()
+        report = function() -- Report command to show the report panel (with optional category filter)
             local category = args[2] or "all"
             
             -- Validate the category
@@ -445,7 +446,7 @@ function CT:HandleCommand(msg)
                 if not self.reportFrame:IsShown() then
                     self.reportFrame:Show()
                 end
-                
+
                 -- Update content and highlight the proper category button
                 self:UpdateReportPanelContent(self.reportFrame.scrollContent, category)
                 
@@ -458,14 +459,13 @@ function CT:HandleCommand(msg)
                     end
                 end
             end
-        end,
+        end,    -- End of report command handler
         
-        reset = function()
+        reset = function()  -- Reset command to reset all saved critical hit records (with confirmation)
             StaticPopup_Show("CRITTRACKER_RESET_CONFIRM")
-        end,
-        
-        -- Default action opens config panel
-        config = function()
+        end,    -- End of reset command handler
+         
+        config = function() -- Config command to open the CritTrackerTBC configuration panel
             if not self.configFrame then
                 self:CreateConfigPanel()
             end
@@ -479,7 +479,7 @@ function CT:HandleCommand(msg)
             else
                 self.configFrame:Hide()
             end
-        end
+        end     -- [END] config command handler]
     }
     
     -- Execute the appropriate handler or default to config
@@ -728,7 +728,6 @@ function CT:RecordCrit(category, name, amount)
         
         -- Set up message with no colors for party/raid announce
         local socialMessage
-
         -- Format socialMessage
         if oldValue == 0 then
             socialMessage = string.format("[CritTrackerTBC] New %s crit record! %s hit for: %d", categoryLabel, name, amount)
