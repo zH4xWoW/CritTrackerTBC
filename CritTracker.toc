@@ -1,9 +1,9 @@
 ## Interface: 20505
-## IconTexture: Interface/Addons/CritTracker/art/crittrackertbc-small
+## IconTexture: Interface/Addons/CritTracker/art/crittracker
 ## Title: |cff00aeffCrit|r|cFFDDDDDDTracker|r|cff20a30fTBC|r
 ## Notes: Tracks critical hits for each specific spell, ability, melee, and wand attacks.|nUpdated for TBC Classic Anniversary!|n|n|cffbbbbbbBy Zanzo (Ronowar-Dreamscythe)|r
 ## Author: Zanzo (Ronowar-Dreamscythe)
-## Version: 1.13
+## Version: 1.14
 ## Category: Combat
 ## X-Curse-Project-ID: 1463449
 ## X-Wago-ID: nGv7QqNx

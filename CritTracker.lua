@@ -254,7 +254,7 @@ function CT:CreateConfigPanel()
     frame.title = frame:CreateFontString(nil, "OVERLAY")
     frame.title:SetFontObject("GameFontHighlight")
     frame.title:SetPoint("CENTER", frame.TitleBg, "CENTER", 0, 0)
-    frame.title:SetText("CritTracker Options")
+    frame.title:SetText("CritTrackerTBC Options")
     
     -- Settings
     local y = -40  -- Starting vertical position
@@ -402,7 +402,7 @@ function CT:HandleCommand(msg)
     -- Command dispatch table for cleaner code
     local commandHandlers = {
         help = function()   -- Help command to list available commands
-            self:Print("|cffff8800[CritTrackerTBC]|r Commands:")
+            self:Print("|cffff8800[|cff00aeffCrit|r|cFFDDDDDDTracker|r|cff20a30fTBC|r]|r Commands:")
             self:Print("/ct - Open configuration panel")
             self:Print("/ct help - Show this help")
             self:Print("/ct toggle - Quickly enable/disable tracking")
